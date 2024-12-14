@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>لوحة التحكم - مدرسة أحمد بن حنبل</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <div class="logo-container">
+                <img src="https://salogos.org/wp-content/uploads/2021/11/UntiTtled-1-768x584.png" alt="شعار وزارة التعليم" class="ministry-logo">
+            </div>
+            <div class="school-title">
+                <h1>لوحة التحكم</h1>
+                <h2>إدارة جدول المعلمين</h2>
+            </div>
+            <div class="logo-container">
+                <img src="https://www2.0zz0.com/2024/12/14/02/355388387.png" alt="شعار المدرسة" class="school-logo">
+            </div>
+        </header>
+
+        <div class="admin-controls">
+            <button onclick="openAddTeacherModal()" class="btn-management">إضافة معلم</button>
+            <button onclick="openImportModal()" class="btn-management">استيراد المعلمين</button>
+            <button onclick="openManageTeachersModal()" class="btn-management">تعديل/حذف المعلمين</button>
+            <button onclick="distributeTeachers()" class="btn-distribution">توزيع المعلمين</button>
+            <button onclick="openStatsModal()" class="btn-stats">إحصائيات المعلمين</button>
+            <button onclick="printSchedule()" class="btn-print">طباعة الجدول</button>
+            <button onclick="exportToPDF()" class="btn-print">تصدير PDF</button>
+            <button onclick="window.location.href='index.html'" class="back-button">عودة للصفحة الرئيسية</button>
+        </div>
+
+        <!-- نافذة إضافة المعلم -->
+        <div id="addTeacherModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeAddTeacherModal()">&times;</span>
+                <h2>إضافة معلم جديد</h2>
+                <input type="text" id="teacherName" placeholder="اسم المعلم">
+                <button onclick="addTeacher()">إضافة</button>
+            </div>
+        </div>
+
+        <!-- نافذة استيراد المعلمين -->
+        <div id="importModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeImportModal()">&times;</span>
+                <h2>استيراد المعلمين</h2>
+                <div class="import-options">
+                    <div class="import-section">
+                        <h3>استيراد من ملف نصي</h3>
+                        <p>يجب أن يحتوي الملف على اسم معلم واحد في كل سطر</p>
+                        <input type="file" id="txtFileInput" accept=".txt" onchange="importFromTxt(this)">
+                    </div>
+                    <div class="import-section">
+                        <h3>استيراد من ملف إكسل</h3>
+                        <p>يجب أن يكون العمود الأول يحتوي على أسماء المعلمين</p>
+                        <input type="file" id="excelFileInput" accept=".xlsx,.xls" onchange="importFromExcel(this)">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- نافذة إدارة المعلمين -->
+        <div id="manageTeachersModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeManageTeachersModal()">&times;</span>
+                <h2>إدارة المعلمين</h2>
+                <div id="teachersList">
+                    <!-- سيتم إضافة قائمة المعلمين هنا -->
+                </div>
+            </div>
+        </div>
+
+        <!-- نافذة إحصائيات المعلمين -->
+        <div id="statsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeStatsModal()">&times;</span>
+                <h2>إحصائيات المعلمين</h2>
+                <div id="teacherStats">
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>اسم المعلم</th>
+                                <th>عدد مرات التكليف</th>
+                            </tr>
+                        </thead>
+                        <tbody id="statsTableBody">
+                            <!-- سيتم ملء البيانات عن طريق JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- الجداول -->
+        <div id="tables-container">
+            <!-- سيتم إنشاء 12 جدول هنا عن طريق JavaScript -->
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

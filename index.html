@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>جدول المعلمين - مدرسة أحمد بن حنبل</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- شاشة البداية -->
+<div class="splash-screen">
+    <img src="https://www2.0zz0.com/2024/12/14/02/355388387.png" alt="شعار المدرسة" class="splash-logo">
+</div>
+
+    <div class="container">
+        <header class="page-header">
+            <div class="logo-container">
+                <img src="https://salogos.org/wp-content/uploads/2021/11/UntiTtled-1-768x584.png" alt="شعار وزارة التعليم" class="ministry-logo">
+            </div>
+            <div class="school-title">
+                <h1>مدرسة أحمد بن حنبل</h1>
+                <h2>جدول توزيع المعلمين</h2>
+            </div>
+            <div class="logo-container">
+                <img src="https://www2.0zz0.com/2024/12/14/02/355388387.png" alt="شعار المدرسة" class="school-logo">
+            </div>
+        </header>
+
+        <!-- الجداول -->
+        <div id="tables-container">
+            <!-- سيتم إنشاء 12 جدول هنا عن طريق JavaScript -->
+        </div>
+
+        <!-- زر لوحة التحكم -->
+        <div class="control-buttons">
+            <button class="admin-button" onclick="openLoginModal()">لوحة التحكم</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="تبديل الوضع الليلي/النهاري">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+        </div>
+
+        <!-- نافذة تسجيل الدخول -->
+        <div id="loginModal" class="login-modal">
+            <div class="login-modal-content">
+                <span class="close" onclick="closeLoginModal()">&times;</span>
+                <h2>تسجيل الدخول</h2>
+                <form class="login-form" onsubmit="return login(event)">
+                    <input type="text" id="username" placeholder="اسم المستخدم" required>
+                    <input type="password" id="password" placeholder="كلمة المرور" required>
+                    <button type="submit">دخول</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- البنر السفلي -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>جميع الحقوق محفوظة لـ / أ. أحمد باعثمان &copy; 2024</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
